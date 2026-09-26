@@ -2,7 +2,7 @@ import { useState, useEffect, type ReactNode } from 'react';
 import {
   LayoutDashboard, Database, PlayCircle, TrendingUp, Bell, GitBranch,
   Shield, Menu, X, Cpu, DollarSign, Search, Download, Upload, User,
-  Trophy, Zap
+  Trophy, Zap, Keyboard
 } from 'lucide-react';
 import { useApp } from './store/AppContext';
 import { useToast } from './store/ToastContext';
@@ -10,6 +10,7 @@ import { AnimatedBackground } from './components/ui/AnimatedBackground';
 import { CursorFollower } from './components/ui/CursorFollower';
 import { ParticleField } from './components/ui/ParticleField';
 import { GradientText } from './components/ui/Primitives';
+import { KeyboardShortcutsModal } from './components/ui/KeyboardShortcutsModal';
 import Dashboard from './components/Dashboard';
 import GoldenDataset from './components/GoldenDataset';
 import EvalRuns from './components/EvalRuns';
@@ -43,6 +44,7 @@ export default function App() {
   const [cmdkOpen, setCmdkOpen] = useState(false);
   const [showExportModal, setShowExportModal] = useState(false);
   const [showImportModal, setShowImportModal] = useState(false);
+  const [showShortcutsModal, setShowShortcutsModal] = useState(false);
   const { state, exportData, importData } = useApp();
   const { success, error } = useToast();
 
@@ -57,7 +59,14 @@ export default function App() {
         e.preventDefault();
         setCmdkOpen(v => !v);
       }
-      if (e.key === 'Escape') setCmdkOpen(false);
+      if ((e.metaKey || e.ctrlKey) && e.key === '/') {
+        e.preventDefault();
+        setShowShortcutsModal(v => !v);
+      }
+      if (e.key === 'Escape') {
+        setCmdkOpen(false);
+        setShowShortcutsModal(false);
+      }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
@@ -232,6 +241,13 @@ export default function App() {
             >
               <Upload size={14} />
             </button>
+            <button
+              onClick={() => setShowShortcutsModal(true)}
+              className="hidden sm:flex p-2 rounded-xl glass hover:border-white/[0.15] text-gray-400 hover:text-white transition-all"
+              title="Keyboard shortcuts (⌘/)"
+            >
+              <Keyboard size={14} />
+            </button>
             <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl glass">
               <div className="relative">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
@@ -364,6 +380,12 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Keyboard Shortcuts Modal */}
+      <KeyboardShortcutsModal 
+        isOpen={showShortcutsModal} 
+        onClose={() => setShowShortcutsModal(false)} 
+      />
     </div>
   );
 }

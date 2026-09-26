@@ -9,6 +9,8 @@ import { useApp } from '../store/AppContext';
 import { useToast } from '../store/ToastContext';
 import { GlassCard, StatCard } from './ui/GlassCard';
 import { GradientText, AnimatedCounter } from './ui/Primitives';
+import { LiveActivityFeed } from './LiveActivityFeed';
+import { InteractiveOrb } from './ui/InteractiveOrb';
 
 interface DashboardProps {
   onNavigate: (view: 'dashboard' | 'dataset' | 'runs' | 'trends' | 'alerts' | 'pipeline' | 'models' | 'cost') => void;
@@ -142,6 +144,39 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {/* Interactive 3D Orb */}
+        <GlassCard className="lg:col-span-1 p-6 animate-fade-in-up stagger-3 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-50">
+            <InteractiveOrb />
+          </div>
+          <div className="relative z-10 flex flex-col items-center justify-center h-64">
+            <div className="text-center space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20">
+                <div className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+                <span className="text-[10px] font-bold text-violet-300 uppercase tracking-wider">System Status</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white">All Systems Operational</h3>
+              <p className="text-xs text-gray-400">Real-time monitoring active</p>
+              <div className="flex items-center gap-4 pt-2">
+                <div className="text-center">
+                  <p className="text-lg font-bold text-emerald-400 tabular-nums">99.9%</p>
+                  <p className="text-[10px] text-gray-500">Uptime</p>
+                </div>
+                <div className="w-px h-8 bg-white/[0.06]" />
+                <div className="text-center">
+                  <p className="text-lg font-bold text-cyan-400 tabular-nums">2.4s</p>
+                  <p className="text-[10px] text-gray-500">Avg Latency</p>
+                </div>
+                <div className="w-px h-8 bg-white/[0.06]" />
+                <div className="text-center">
+                  <p className="text-lg font-bold text-violet-400 tabular-nums">8</p>
+                  <p className="text-[10px] text-gray-500">Models</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </GlassCard>
+
         {/* Quality Chart */}
         <GlassCard className="lg:col-span-2 p-6 animate-fade-in-up stagger-3">
           <div className="flex items-center justify-between mb-5">
@@ -203,6 +238,11 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             ))}
           </div>
         </GlassCard>
+      </div>
+
+      {/* Live Activity Feed */}
+      <div className="animate-fade-in-up stagger-5">
+        <LiveActivityFeed />
       </div>
     </div>
   );

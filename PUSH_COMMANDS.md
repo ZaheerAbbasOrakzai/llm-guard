@@ -111,21 +111,11 @@ Then add your live URL to the repository's "About" section.
 
 ---
 
-## 🎨 Your 3D Images (Already in README)
+## 🎨 Local Visual Assets
 
-All three premium 3D images are integrated:
-
-1. **Hero Banner** - Top of README
-   - 3D glassmorphism UI with aurora effects
-   - URL: https://image.qwenlm.ai/generated-images/38038c37-851d-4b51-9303-2d5de8aa8373/_result.png
-
-2. **Dashboard Showcase** - Demo section
-   - Floating 3D dashboard mockup
-   - URL: https://image.qwenlm.ai/generated-images/bbfaaac2-397a-46ab-a657-7b80912175d3/_result.png
-
-3. **Logo** - Author section
-   - 3D shield with neural network pattern
-   - URL: https://image.qwenlm.ai/generated-images/855a0fdb-35d8-4742-91a6-3028912e48cf/_result.png
+- `public/assets/llm-guard-logo.png` — local logo artwork referenced in the README.
+- `public/assets/dashboard-preview.png` — local dashboard preview referenced in the README.
+- Both files are included in the repository and served by Vite from `/assets/`.
 
 ---
 

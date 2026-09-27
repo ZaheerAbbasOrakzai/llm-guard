@@ -9,7 +9,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge&labelColor=000000" alt="Status"/>
   <img src="https://img.shields.io/badge/Version-2.0.0-8B5CF6?style=for-the-badge&labelColor=000000" alt="Version"/>
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&labelColor=000000" alt="License"/>
+  <img src="https://img.shields.io/badge/License-Apache--2.0-blue?style=for-the-badge&labelColor=000000" alt="License"/>
   <img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white&labelColor=000000" alt="TypeScript"/>
   <img src="https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react&logoColor=black&labelColor=000000" alt="React"/>
   <img src="https://img.shields.io/badge/Vite-6.3-646CFF?style=for-the-badge&logo=vite&logoColor=white&labelColor=000000" alt="Vite"/>
@@ -34,9 +34,9 @@
 
 <br/>
 
-<!-- Premium 3D Hero Banner -->
+<!-- LLM Guard logo artwork -->
 <p align="center">
-  <img src="https://image.qwenlm.ai/generated-images/38038c37-851d-4b51-9303-2d5de8aa8373/_result.png" width="100%" alt="LLM Guard - Elite Production-Grade Model Regression Detection System"/>
+  <img src="./public/assets/llm-guard-logo.png" width="180" alt="LLM Guard shield logo"/>
 </p>
 
 </div>
@@ -149,8 +149,8 @@ graph TB
 
 <div align="center">
 
-<!-- Premium 3D Dashboard Showcase -->
-<img src="https://image.qwenlm.ai/generated-images/bbfaaac2-397a-46ab-a657-7b80912175d3/_result.png" width="100%" alt="LLM Guard Dashboard - Interactive quality monitoring with real-time metrics"/>
+<!-- Dashboard preview artwork -->
+<img src="./public/assets/dashboard-preview.png" width="100%" alt="LLM Guard dashboard preview"/>
 
 <br/>
 <br/>
@@ -517,12 +517,12 @@ Contributions are welcome! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICENSE) file for details.
 
 <div align="center">
 
 ```
-MIT License © 2024 Zaheer Abbas Orakzai
+Apache License 2.0 © 2024 Zaheer Abbas Orakzai
 ```
 
 </div>
@@ -533,8 +533,8 @@ MIT License © 2024 Zaheer Abbas Orakzai
 
 <div align="center">
 
-<!-- Premium 3D Logo -->
-<img src="https://image.qwenlm.ai/generated-images/855a0fdb-35d8-4742-91a6-3028912e48cf/_result.png" width="150" alt="LLM Guard Logo"/>
+<!-- LLM Guard logo artwork -->
+<img src="./public/assets/llm-guard-logo.png" width="120" alt="LLM Guard logo"/>
 
 <br/>
 <br/>

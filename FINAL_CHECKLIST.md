@@ -8,7 +8,7 @@
 
 ### Core Files (35+ files)
 - ✅ **README.md** - Professional README with 3D images (630 lines)
-- ✅ **LICENSE** - MIT License (Copyright 2024 Zaheer Abbas Orakzai)
+- ✅ **LICENSE** - Apache License 2.0 (the existing GitHub repository license)
 - ✅ **CONTRIBUTING.md** - Contribution guidelines
 - ✅ **CODE_OF_CONDUCT.md** - Community standards
 - ✅ **PUSH_COMMANDS.md** - Exact commands to push to GitHub
@@ -55,25 +55,11 @@
 
 ---
 
-## 🎨 PREMIUM 3D IMAGES (Already Integrated)
+## 🎨 Local Visual Assets
 
-### 1. Hero Banner (Top of README)
-- **URL:** https://image.qwenlm.ai/generated-images/38038c37-851d-4b51-9303-2d5de8aa8373/_result.png
-- **Size:** 1280x640px
-- **Features:** 3D glassmorphism UI, aurora effects, gradient text
-- **Status:** ✅ Integrated in README.md (line 39)
-
-### 2. Dashboard Showcase (Demo Section)
-- **URL:** https://image.qwenlm.ai/generated-images/bbfaaac2-397a-46ab-a657-7b80912175d3/_result.png
-- **Size:** 1280x640px
-- **Features:** Floating 3D dashboard, real-time charts
-- **Status:** ✅ Integrated in README.md (demo section)
-
-### 3. Logo (Author Section)
-- **URL:** https://image.qwenlm.ai/generated-images/855a0fdb-35d8-4742-91a6-3028912e48cf/_result.png
-- **Size:** 1024x1024px
-- **Features:** 3D shield with neural network pattern
-- **Status:** ✅ Integrated in README.md (author section)
+- **Dashboard preview:** `public/assets/dashboard-preview.png`
+- **LLM Guard logo:** `public/assets/llm-guard-logo.png`
+- Both assets are committed with the project and referenced locally in `README.md`.
 
 ---
 

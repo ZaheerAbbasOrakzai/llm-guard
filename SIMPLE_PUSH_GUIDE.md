@@ -87,7 +87,7 @@ Your repository is now live at: **https://github.com/ZaheerAbbasOrakzai/llm-guar
 ✅ 25+ UI components  
 ✅ Real production data  
 ✅ All bugs fixed  
-✅ MIT License  
+✅ Apache License 2.0
 
 ---
 

@@ -137,6 +137,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       ...model,
       id: `mdl-${model.provider}-${model.model.replace(/\./g, '-')}-${Date.now()}`,
       registeredAt: new Date().toISOString(),
+      benchmarks: model.benchmarks || {},
     };
     dispatch({ type: 'ADD_MODEL', payload: newModel });
   };

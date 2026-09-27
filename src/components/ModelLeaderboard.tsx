@@ -16,7 +16,7 @@ export default function ModelLeaderboard() {
     const modelRuns = evalRuns.filter(r => r.modelConfigId === model.id);
     const avgScore = modelRuns.length > 0 
       ? modelRuns.reduce((sum, r) => sum + r.overallScore, 0) / modelRuns.length 
-      : model.benchmarks.mmlu || 0;
+      : model.benchmarks?.mmlu || 0;
     const avgCost = modelRuns.length > 0
       ? modelRuns.reduce((sum, r) => sum + r.totalCostUsd, 0) / modelRuns.length
       : (model.costPer1MInput + model.costPer1MOutput) / 2;

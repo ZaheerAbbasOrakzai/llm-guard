@@ -34,9 +34,9 @@
 
 <br/>
 
-<!-- Animated Banner -->
+<!-- Premium 3D Hero Banner -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=20&height=250&section=header&text=LLM%20Guard&fontSize=80&animation=fadeIn&fontAlignY=38&desc=Production-Grade%20LLM%20Quality%20Assurance&descAlignY=51&descAlign=62" width="100%"/>
+  <img src="https://image.qwenlm.ai/generated-images/38038c37-851d-4b51-9303-2d5de8aa8373/_result.png" width="100%" alt="LLM Guard - Elite Production-Grade Model Regression Detection System"/>
 </p>
 
 </div>
@@ -149,14 +149,14 @@ graph TB
 
 <div align="center">
 
-<!-- Add your demo GIF here -->
-<img src="https://via.placeholder.com/800x450/8b5cf6/ffffff?text=🎬+Interactive+Demo+Coming+Soon" width="100%" alt="LLM Guard Demo"/>
+<!-- Premium 3D Dashboard Showcase -->
+<img src="https://image.qwenlm.ai/generated-images/bbfaaac2-397a-46ab-a657-7b80912175d3/_result.png" width="100%" alt="LLM Guard Dashboard - Interactive quality monitoring with real-time metrics"/>
 
 <br/>
 <br/>
 
 <p align="center">
-  <sub><em>Interactive dashboard with real-time metrics, 3D visualizations, and premium glassmorphism UI</em></sub>
+  <sub><em>✨ Interactive dashboard with real-time metrics, 3D visualizations, and premium glassmorphism UI</em></sub>
 </p>
 
 </div>
@@ -532,6 +532,12 @@ MIT License © 2024 YOUR_NAME
 ## 👤 Author
 
 <div align="center">
+
+<!-- Premium 3D Logo -->
+<img src="https://image.qwenlm.ai/generated-images/855a0fdb-35d8-4742-91a6-3028912e48cf/_result.png" width="150" alt="LLM Guard Logo"/>
+
+<br/>
+<br/>
 
 ### YOUR_NAME
 

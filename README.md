@@ -244,6 +244,31 @@ npm run preview
 vercel --prod
 ```
 
+### 📖 Complete Deployment Guide
+
+For detailed deployment instructions including Vercel, Netlify, GitHub Pages, Docker, and custom servers, see **[DEPLOYMENT.md](./DEPLOYMENT.md)**.
+
+**Quick Deploy Commands:**
+
+```bash
+# Vercel (Recommended)
+npm install -g vercel
+vercel --prod
+
+# Netlify
+npm install -g netlify-cli
+npm run build
+netlify deploy --prod --dir=dist
+
+# GitHub Pages
+npm install -D gh-pages
+npm run deploy
+
+# Docker
+docker build -t llm-guard .
+docker run -p 8080:80 llm-guard
+```
+
 ---
 
 ## 📚 Documentation

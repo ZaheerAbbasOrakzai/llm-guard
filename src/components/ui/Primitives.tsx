@@ -9,12 +9,13 @@ export function GradientText({ children, className = '', colors = 'from-violet-4
 }
 
 export function AnimatedCounter({ value, duration = 1000, format = (v: number) => v.toString(), className = '' }: { value: number; duration?: number; format?: (v: number) => string; className?: string }) {
-  const [displayValue, setDisplayValue] = useState(value);
-  const prevValue = useRef(value);
+  const safeValue = value || 0;
+  const [displayValue, setDisplayValue] = useState(safeValue);
+  const prevValue = useRef(safeValue);
 
   useEffect(() => {
     const startValue = prevValue.current;
-    const endValue = value;
+    const endValue = safeValue;
     const startTime = performance.now();
 
     const animate = (currentTime: number) => {
@@ -31,9 +32,9 @@ export function AnimatedCounter({ value, duration = 1000, format = (v: number) =
     };
 
     requestAnimationFrame(animate);
-  }, [value, duration]);
+  }, [safeValue, duration]);
 
-  return <span className={`tabular-nums ${className}`}>{format(displayValue)}</span>;
+  return <span className={`tabular-nums ${className}`}>{format(displayValue || 0)}</span>;
 }
 
 export function GlowButton({ children, variant = 'primary', size = 'md', glow = true, icon, className = '', ...props }: { children: ReactNode; variant?: 'primary' | 'secondary' | 'ghost' | 'danger'; size?: 'sm' | 'md' | 'lg'; glow?: boolean; icon?: ReactNode; className?: string } & React.ButtonHTMLAttributes<HTMLButtonElement>) {

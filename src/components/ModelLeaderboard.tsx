@@ -27,11 +27,11 @@ export default function ModelLeaderboard() {
 
     return {
       ...model,
-      avgScore: +avgScore.toFixed(1),
-      avgCost: +avgCost.toFixed(3),
-      avgLatency: Math.round(avgLatency),
+      avgScore: +(avgScore || 0).toFixed(1),
+      avgCost: +(avgCost || 0).toFixed(3),
+      avgLatency: Math.round(avgLatency || 0),
       totalRuns,
-      valueScore: +((avgScore / (avgCost * 100)) * 10).toFixed(1), // Score per dollar
+      valueScore: avgCost > 0 ? +((avgScore / (avgCost * 100)) * 10).toFixed(1) : 0, // Score per dollar
     };
   });
 

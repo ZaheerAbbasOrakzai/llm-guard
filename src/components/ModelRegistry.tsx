@@ -71,15 +71,15 @@ export default function ModelRegistry() {
             <div className="grid grid-cols-3 gap-2 mb-3">
               <div className="p-2 bg-white/[0.02] rounded-md">
                 <p className="text-[9px] text-gray-600 uppercase tracking-wide">Cost/1M in</p>
-                <p className="text-xs font-mono text-white tabular-nums">${model.costPer1MInput.toFixed(2)}</p>
+                <p className="text-xs font-mono text-white tabular-nums">${(model.costPer1MInput || 0).toFixed(2)}</p>
               </div>
               <div className="p-2 bg-white/[0.02] rounded-md">
                 <p className="text-[9px] text-gray-600 uppercase tracking-wide">Cost/1M out</p>
-                <p className="text-xs font-mono text-white tabular-nums">${model.costPer1MOutput.toFixed(2)}</p>
+                <p className="text-xs font-mono text-white tabular-nums">${(model.costPer1MOutput || 0).toFixed(2)}</p>
               </div>
               <div className="p-2 bg-white/[0.02] rounded-md">
                 <p className="text-[9px] text-gray-600 uppercase tracking-wide">Context</p>
-                <p className="text-xs font-mono text-white tabular-nums">{(model.contextWindow / 1000).toFixed(0)}k</p>
+                <p className="text-xs font-mono text-white tabular-nums">{((model.contextWindow || 0) / 1000).toFixed(0)}k</p>
               </div>
             </div>
 
@@ -128,11 +128,11 @@ export default function ModelRegistry() {
             </div>
             <div className="p-2.5 bg-white/[0.02] rounded-lg border border-white/[0.04]">
               <p className="text-[9px] text-gray-600 uppercase tracking-wide">Max Tokens</p>
-              <p className="text-xs text-white font-medium mt-0.5">{selectedModel.maxTokens.toLocaleString()}</p>
+              <p className="text-xs text-white font-medium mt-0.5">{(selectedModel.maxTokens || 0).toLocaleString()}</p>
             </div>
             <div className="p-2.5 bg-white/[0.02] rounded-lg border border-white/[0.04]">
               <p className="text-[9px] text-gray-600 uppercase tracking-wide">Context Window</p>
-              <p className="text-xs text-white font-medium mt-0.5">{(selectedModel.contextWindow / 1000).toFixed(0)}k</p>
+              <p className="text-xs text-white font-medium mt-0.5">{((selectedModel.contextWindow || 0) / 1000).toFixed(0)}k</p>
             </div>
           </div>
 

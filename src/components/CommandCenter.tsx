@@ -15,8 +15,8 @@ export default function CommandCenter() {
   const latestRun = evalRuns[0];
   const activeAlerts = alerts.filter(a => !a.acknowledged).length;
   const criticalAlerts = alerts.filter(a => a.severity === 'critical' && !a.acknowledged).length;
-  const passRate24h = evalRuns.slice(0, 10).reduce((sum, r) => sum + (r.passedCases / r.totalCases), 0) / Math.min(10, evalRuns.length) * 100;
-  const avgLatency = evalRuns.slice(0, 10).reduce((sum, r) => sum + r.p95Latency, 0) / Math.min(10, evalRuns.length);
+  const passRate24h = evalRuns.length > 0 ? evalRuns.slice(0, 10).reduce((sum, r) => sum + (r.passedCases / r.totalCases), 0) / Math.min(10, evalRuns.length) * 100 : 0;
+  const avgLatency = evalRuns.length > 0 ? evalRuns.slice(0, 10).reduce((sum, r) => sum + r.p95Latency, 0) / Math.min(10, evalRuns.length) : 0;
   const costToday = evalRuns.slice(0, 5).reduce((sum, r) => sum + r.totalCostUsd, 0);
 
   return (
@@ -57,7 +57,7 @@ export default function CommandCenter() {
             <span className="text-[10px] text-gray-500 uppercase tracking-wide">Pass Rate (24h)</span>
           </div>
           <p className="text-2xl font-bold text-white tabular-nums">
-            <AnimatedCounter value={passRate24h} format={(v: number) => `${v.toFixed(1)}%`} />
+            <AnimatedCounter value={passRate24h || 0} format={(v: number) => `${(v || 0).toFixed(1)}%`} />
           </p>
           <p className="text-[10px] text-gray-500 mt-1">Last 10 evaluations</p>
         </GlassCard>
@@ -70,7 +70,7 @@ export default function CommandCenter() {
             <span className="text-[10px] text-gray-500 uppercase tracking-wide">Avg Latency</span>
           </div>
           <p className="text-2xl font-bold text-white tabular-nums">
-            <AnimatedCounter value={avgLatency / 1000} format={(v: number) => `${v.toFixed(2)}s`} />
+            <AnimatedCounter value={(avgLatency || 0) / 1000} format={(v: number) => `${(v || 0).toFixed(2)}s`} />
           </p>
           <p className="text-[10px] text-gray-500 mt-1">p95 response time</p>
         </GlassCard>
@@ -138,7 +138,7 @@ export default function CommandCenter() {
             </div>
             <div className="flex items-center justify-between">
               <span className="text-xs text-gray-400">Cost Today</span>
-              <span className="text-sm font-mono text-white tabular-nums">${costToday.toFixed(2)}</span>
+              <span className="text-sm font-mono text-white tabular-nums">${(costToday || 0).toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-xs text-gray-400">Test Coverage</span>

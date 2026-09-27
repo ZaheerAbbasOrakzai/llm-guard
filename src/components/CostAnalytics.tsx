@@ -9,9 +9,9 @@ export default function CostAnalytics() {
   const evalRuns = state.evalRuns;
 
   const totalCost = trendData.reduce((s, d) => s + d.costUsd, 0);
-  const avgCostPerRun = totalCost / trendData.length;
+  const avgCostPerRun = trendData.length > 0 ? totalCost / trendData.length : 0;
   const totalTokens = trendData.reduce((s, d) => s + d.totalTokens, 0);
-  const avgLatency = trendData.reduce((s, d) => s + d.p95Latency, 0) / trendData.length;
+  const avgLatency = trendData.length > 0 ? trendData.reduce((s, d) => s + d.p95Latency, 0) / trendData.length : 0;
 
   const costByModel = evalRuns.reduce<Record<string, { cost: number; runs: number }>>((acc, run) => {
     if (!acc[run.modelLabel]) acc[run.modelLabel] = { cost: 0, runs: 0 };
@@ -22,7 +22,7 @@ export default function CostAnalytics() {
 
   const modelCostData = Object.entries(costByModel).map(([model, data]) => ({
     model: model.length > 20 ? model.slice(0, 20) + '...' : model,
-    cost: +data.cost.toFixed(3),
+    cost: +(data.cost || 0).toFixed(3),
     runs: data.runs,
   })).sort((a, b) => b.cost - a.cost);
 

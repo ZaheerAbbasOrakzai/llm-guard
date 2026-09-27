@@ -9,8 +9,8 @@ export default function TrendView() {
   const trendData = state.trendData;
   const evalRuns = state.evalRuns;
 
-  const latest = trendData[trendData.length - 1];
-  const avgScore = trendData.reduce((s, d) => s + d.overallScore, 0) / trendData.length;
+  const latest = trendData[trendData.length - 1] || { overallScore: 0, safetyScore: 0, passRate: 0 };
+  const avgScore = trendData.length > 0 ? trendData.reduce((s, d) => s + d.overallScore, 0) / trendData.length : 0;
   const regressionCount = evalRuns.filter(r => r.status === 'fail').length;
   const totalCost = trendData.reduce((s, d) => s + d.costUsd, 0);
 
@@ -18,11 +18,11 @@ export default function TrendView() {
     <div className="space-y-5">
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         {[
-          { label: 'Current Score', value: `${latest.overallScore}%`, sub: `Avg: ${avgScore.toFixed(1)}%`, icon: <Target size={14} /> },
+          { label: 'Current Score', value: `${latest.overallScore}%`, sub: `Avg: ${(avgScore || 0).toFixed(1)}%`, icon: <Target size={14} /> },
           { label: 'Safety Score', value: `${latest.safetyScore}%`, sub: 'Target: ≥99%', icon: <Target size={14} /> },
           { label: 'Pass Rate', value: `${latest.passRate}%`, sub: `${evalRuns.length} runs tracked`, icon: <TrendingUp size={14} /> },
           { label: 'Regressions', value: regressionCount.toString(), sub: 'Last 30 days', icon: <AlertTriangle size={14} /> },
-          { label: '30d Cost', value: `$${totalCost.toFixed(2)}`, sub: `$${(totalCost / trendData.length).toFixed(2)}/run avg`, icon: <TrendingUp size={14} /> },
+          { label: '30d Cost', value: `$${(totalCost || 0).toFixed(2)}`, sub: `$${trendData.length > 0 ? (totalCost / trendData.length).toFixed(2) : '0.00'}/run avg`, icon: <TrendingUp size={14} /> },
         ].map((s, i) => (
           <GlassCard key={i} className="p-3">
             <div className="flex items-center gap-1.5 mb-1.5">

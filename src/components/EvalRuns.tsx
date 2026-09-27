@@ -113,7 +113,7 @@ export default function EvalRuns() {
                 </div>
                 <div className="p-2.5 bg-white/[0.02] rounded-lg border border-white/[0.04]">
                   <p className="text-[10px] text-gray-500">Cost</p>
-                  <p className="text-xs text-white font-medium mt-0.5">${selectedRun.totalCostUsd.toFixed(3)}</p>
+                  <p className="text-xs text-white font-medium mt-0.5">${(selectedRun.totalCostUsd || 0).toFixed(3)}</p>
                 </div>
               </div>
 
@@ -151,7 +151,7 @@ export default function EvalRuns() {
                     <div key={i} className="flex-1">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-[10px] text-gray-500">{l.label}</span>
-                        <span className={`text-xs font-mono tabular-nums ${l.value > 3000 ? 'text-red-400' : 'text-gray-200'}`}>{(l.value / 1000).toFixed(2)}s</span>
+                        <span className={`text-xs font-mono tabular-nums ${(l.value || 0) > 3000 ? 'text-red-400' : 'text-gray-200'}`}>{((l.value || 0) / 1000).toFixed(2)}s</span>
                       </div>
                       <div className="h-1 bg-white/[0.04] rounded-full overflow-hidden">
                         <div className={`h-full rounded-full ${l.value > 3000 ? 'bg-red-500' : 'bg-violet-500'}`} style={{ width: `${Math.min(100, (l.value / 4000) * 100)}%` }} />

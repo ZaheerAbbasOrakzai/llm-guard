@@ -26,7 +26,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   const trendData = state.trendData;
   const testCases = state.testCases;
 
-  const latestRun = evalRuns[0];
+  const latestRun = evalRuns[0] || { weightedScore: 0, deltaVsBaseline: 0, p95Latency: 0, p50Latency: 0, passedCases: 0, totalCases: 0 };
   const unacknowledgedAlerts = alerts.filter(a => !a.acknowledged);
   const criticalAlerts = alerts.filter(a => a.severity === 'critical' && !a.acknowledged);
 

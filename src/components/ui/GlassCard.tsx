@@ -60,7 +60,7 @@ export function StatCard({ label, value, sub, icon, gradient, delta }: { label: 
         {delta && (
           <div className={`flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg backdrop-blur-sm ${delta.positive ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
             <span>{delta.positive ? '↑' : '↓'}</span>
-            <span className="tabular-nums">{Math.abs(delta.value).toFixed(1)}%</span>
+            <span className="tabular-nums">{Math.abs(delta.value || 0).toFixed(1)}%</span>
           </div>
         )}
       </div>

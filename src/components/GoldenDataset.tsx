@@ -97,7 +97,7 @@ export default function GoldenDataset() {
                     {tc.critical && <Shield size={11} className="text-red-400" />}
                     {tc.weight > 2 && <Star size={11} className="text-amber-400 fill-amber-400" />}
                   </div>
-                  <span className="text-[10px] text-gray-600">v{tc.version} · w:{tc.weight.toFixed(1)}</span>
+                  <span className="text-[10px] text-gray-600">v{tc.version} · w:{(tc.weight || 1).toFixed(1)}</span>
                 </div>
                 <p className="text-xs text-gray-200 line-clamp-2 mb-2">{tc.input}</p>
                 <p className="text-[10px] text-gray-500 line-clamp-1 mb-2">Expected: {tc.expected}</p>
